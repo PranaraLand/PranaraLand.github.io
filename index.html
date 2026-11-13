@@ -7,11 +7,16 @@
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; background: #31475c; color: #fff; font-family: Avenir, Arial, sans-serif; }
-    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; min-height: 100svh; display: grid; align-items: end; padding: clamp(24px, 7vw, 100px); }
+    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 100vh; min-height: 100svh; display: grid; align-items: center; padding: clamp(24px, 7vw, 100px); }
     .facade, .hero::after { position: absolute; inset: 0; width: 100%; height: 100%; }
     .facade { z-index: -2; object-fit: cover; object-position: 57% center; animation: zoom-out 7s cubic-bezier(.2,.7,.2,1) both; }
-    .hero::after { content: ""; z-index: -1; background: linear-gradient(0deg, #142433eb, #14243340 55%, #14243308 85%); }
-    h1 { margin: 0 0 24px; font: 400 clamp(44px, 7vw, 96px)/.98 Georgia, serif; letter-spacing: -.045em; }
+    .hero::after { content: ""; z-index: -1; background: linear-gradient(90deg, #14243392, #14243312 80%), linear-gradient(0deg, #142433a6, #14243325 76%); }
+    .hero > div { transform: translateY(2svh); }
+    @media (max-width: 600px) and (orientation: portrait) {
+      .hero { align-items: start; padding-top: max(24px, calc(72svh - 56px)); }
+      .hero > div { transform: none; }
+    }
+    h1 { margin: 0 0 24px; font: 400 clamp(32px, 10vw, 96px)/.98 Georgia, serif; letter-spacing: -.045em; }
     a { display: inline-flex; align-items: center; gap: 14px; min-height: 48px; padding: 12px 18px; background: #f5efea; color: #253a4b; border-radius: 5px; font-weight: 700; text-decoration: none; }
     a:hover { background: #fff; }
     a:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
@@ -21,7 +26,7 @@
 </head>
 <body>
   <main class="hero">
-    <img class="facade" src="https://pranaraland-os.bright-flint-7504.chatgpt.site/assets/pranaraland-residences.png" alt="Fasad townhouse Pranara Cilandak" fetchpriority="high">
+    <img class="facade" src="./assets/pranara-facade-hero.webp" alt="Fasad townhouse Pranara Cilandak" fetchpriority="high">
     <div>
       <h1>PranaraLand OS</h1>
       <a href="https://pranaraland-os.bright-flint-7504.chatgpt.site/crm">Masuk ke CRM <span aria-hidden="true">→</span></a>
