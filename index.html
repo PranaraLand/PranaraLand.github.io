@@ -11,10 +11,23 @@
     .facade, .hero::after { position: absolute; inset: 0; width: 100%; height: 100%; }
     .facade { z-index: -2; object-fit: cover; object-position: 57% center; animation: zoom-out 7s cubic-bezier(.2,.7,.2,1) both; }
     .hero::after { content: ""; z-index: -1; background: linear-gradient(90deg, #14243392, #14243312 80%), linear-gradient(0deg, #142433a6, #14243325 76%); }
+    .hero > picture { position: absolute; inset: 0; z-index: -2; }
+    .pranara-logo { display: none; }
     .hero > div { transform: translateY(2svh); }
     @media (max-width: 600px) and (orientation: portrait) {
       .hero { align-items: start; padding-top: max(24px, calc(72svh - 56px)); }
       .hero > div { transform: none; }
+      .facade { object-position: center; }
+      .pranara-logo {
+        display: block;
+        position: absolute;
+        top: 19%;
+        left: 50%;
+        width: clamp(96px, 29vw, 150px);
+        height: auto;
+        transform: translate(-50%, -50%);
+        filter: drop-shadow(0 2px 9px #14243366);
+      }
     }
     h1 { margin: 0 0 24px; font: 400 clamp(32px, 10vw, 96px)/.98 Georgia, serif; letter-spacing: -.045em; }
     a { display: inline-flex; align-items: center; gap: 14px; min-height: 48px; padding: 12px 18px; background: #f5efea; color: #253a4b; border-radius: 5px; font-weight: 700; text-decoration: none; }
@@ -26,7 +39,11 @@
 </head>
 <body>
   <main class="hero">
-    <img class="facade" src="./assets/pranara-facade-hero.webp" alt="Fasad townhouse Pranara Cilandak" fetchpriority="high">
+    <picture>
+      <source media="(max-width: 600px) and (orientation: portrait)" srcset="./assets/aruna-facade-portrait.webp">
+      <img class="facade" src="./assets/pranara-facade-hero.webp" alt="Fasad townhouse Pranara Cilandak" fetchpriority="high">
+    </picture>
+    <img class="pranara-logo" src="./assets/pranara-logo-white.svg" width="86" height="40" alt="Pranara">
     <div>
       <h1>PranaraLand OS</h1>
       <a href="https://pranaraland-os.bright-flint-7504.chatgpt.site/crm">Masuk ke CRM <span aria-hidden="true">→</span></a>
