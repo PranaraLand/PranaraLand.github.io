@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PranaraLand OS</title>
+  <title>PranaraLand | Portal</title>
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; background: #31475c; color: #fff; font-family: Avenir, Arial, sans-serif; }
@@ -15,7 +15,7 @@
     .pranara-logo { display: none; }
     .hero > div { transform: translateY(2svh); }
     @media (max-width: 600px) and (orientation: portrait) {
-      .hero { align-items: start; padding-top: max(24px, calc(72svh - 56px)); }
+      .hero { align-items: start; padding-top: max(24px, clamp(150px, 43svh, 420px)); }
       .hero > div { transform: none; }
       .facade { object-position: center; }
       .pranara-logo {
@@ -33,6 +33,15 @@
     a { display: inline-flex; align-items: center; gap: 14px; min-height: 48px; padding: 12px 18px; background: #f5efea; color: #253a4b; border-radius: 5px; font-weight: 700; text-decoration: none; }
     a:hover { background: #fff; }
     a:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+    .portal { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 780px; }
+    .portal-card { display: grid; gap: 5px; align-content: center; min-height: 85px; padding: 14px 16px; border-radius: 6px; background: #f5efea; color: #253a4b; }
+    .portal-card strong { font-size: 17px; }
+    .portal-card small { font-size: 12px; line-height: 1.4; font-weight: 500; }
+    .portal-card[aria-disabled="true"] { background: #eae6e6; color: #4d5b67; }
+    @media (max-width: 680px) {
+      .portal { grid-template-columns: 1fr; max-width: 460px; }
+      .portal-card { min-height: 56px; gap: 3px; padding: 10px 14px; }
+    }
     @keyframes zoom-out { from { transform: scale(1.14); } to { transform: scale(1); } }
     @media (prefers-reduced-motion: reduce) { .facade { animation: none; } }
   </style>
@@ -45,8 +54,12 @@
     </picture>
     <img class="pranara-logo" src="./assets/pranara-logo-white.svg" width="86" height="40" alt="Pranara">
     <div>
-      <h1>PranaraLand OS</h1>
-      <a href="https://pranaraland-os.bright-flint-7504.chatgpt.site/crm">Masuk ke CRM <span aria-hidden="true">→</span></a>
+      <h1>PranaraLand</h1>
+      <nav class="portal" aria-label="Portal PranaraLand">
+        <a class="portal-card" href="https://pranaraland-os.bright-flint-7504.chatgpt.site/crm"><strong>CRM <span aria-hidden="true">→</span></strong><small>Customer Relationship Management</small></a>
+        <div class="portal-card" aria-disabled="true"><strong>CRS</strong><small>Creative Studio · Segera hadir</small></div>
+        <a class="portal-card" href="/Crc"><strong>CRC <span aria-hidden="true">→</span></strong><small>Craft &amp; Construction</small></a>
+      </nav>
     </div>
   </main>
 </body>
